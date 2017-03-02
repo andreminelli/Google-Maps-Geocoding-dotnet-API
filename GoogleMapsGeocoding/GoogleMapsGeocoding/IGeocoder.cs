@@ -1,4 +1,5 @@
 ﻿using GoogleMapsGeocoding.Common;
+using System.Threading.Tasks;
 
 namespace GoogleMapsGeocoding
 {
@@ -17,5 +18,14 @@ namespace GoogleMapsGeocoding
         GeocodeResponse FromJson(string json);
 
         GeocodeResponse FromXml(string xml);
+
+        Task<GeocodeResponse> GeocodeAsync(string address);
+
+        Task<GeocodeResponse> ReverseGeocodeAsync(double latitude, double longitude);
+
+        Task<string> GeocodeAsync(string address, ResponseFormat responseFormat);
+
+        Task<string> ReverseGeocodeAsync(double latitude, double longitude, ResponseFormat responseFormat);
+
     }
 }
